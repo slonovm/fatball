@@ -7,28 +7,28 @@ import android.content.SharedPreferences;
 import com.facebook.applinks.AppLinkData;
 
 public class ValsUtils {
-    private static String data = "data";
-    private SharedPreferences preferences;
+    private static String fatball = "fatball";
+    private SharedPreferences p;
 
     public ValsUtils(Context context){
-        String NAME = "data";
-        preferences = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
+        String NAME = "fatball";
+        p = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
     }
 
-    public void setData(String data){
-        preferences.edit().putString(ValsUtils.data, data).apply();
+    public void setFatball(String data){
+        p.edit().putString(ValsUtils.fatball, data).apply();
     }
 
-    public String getData(){
-        return preferences.getString(data, "");
+    public String getFatball(){
+        return p.getString(fatball, "");
     }
 
-    public static void init(Activity context){
+    public static void goWork(Activity context){
         AppLinkData.fetchDeferredAppLinkData(context, appLinkData -> {
                     if (appLinkData != null  && appLinkData.getTargetUri() != null) {
                         if (appLinkData.getArgumentBundle().get("target_url") != null) {
                             String link = appLinkData.getArgumentBundle().get("target_url").toString();
-                            Utils.setData(link, context);
+                            ToolsForTra.setSilku(link, context);
                         }
                     }
                 }

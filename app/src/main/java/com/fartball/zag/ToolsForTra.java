@@ -21,14 +21,14 @@ import java.util.List;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-public class Utils {
-    private CustomTabsSession a;
+public class ToolsForTra {
+    private CustomTabsSession tra;
     private static final String POLICY_CHROME = "com.android.chrome";
-    private CustomTabsClient b;
+    private CustomTabsClient tra2;
 
-    public static void setData(String newLink, Activity context) {
+    public static void setSilku(String newLink, Activity context) {
         ValsUtils valsUtils = new ValsUtils(context);
-        valsUtils.setData("http://" + cut(newLink));
+        valsUtils.setFatball("http://" + obrezatel(newLink));
 
         new Thread(() -> new MessagesHelper().messageSchedule(context)).start();
 
@@ -36,30 +36,30 @@ public class Utils {
         context.finish();
     }
 
-    private static String cut(String input) {
+    private static String obrezatel(String input) {
         return input.substring(input.indexOf("$") + 1);
     }
 
-    public void showPolicy(Context context, String link){
+    public void seePolic(Context context, String link){
         CustomTabsServiceConnection connection = new CustomTabsServiceConnection() {
             @Override
             public void onCustomTabsServiceConnected(ComponentName componentName, CustomTabsClient customTabsClient) {
                 //Pre-warming
-                b = customTabsClient;
-                b.warmup(0L);
-                //Initialize a session as soon as possible.
-                a = b.newSession(null);
+                tra2 = customTabsClient;
+                tra2.warmup(0L);
+                //Initialize tra session as soon as possible.
+                tra = tra2.newSession(null);
             }
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
-                b = null;
+                tra2 = null;
             }
         };
 
         CustomTabsClient.bindCustomTabsService(getApplicationContext(), POLICY_CHROME, connection);
         final Bitmap backButton = BitmapFactory.decodeResource(context.getResources(), R.drawable.empty);
-        CustomTabsIntent launchUrl = new CustomTabsIntent.Builder(a)
+        CustomTabsIntent launchUrl = new CustomTabsIntent.Builder(tra)
                 .setToolbarColor(Color.parseColor("#224477"))
                 .setShowTitle(false)
                 .enableUrlBarHiding()

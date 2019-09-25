@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "com.fartball.zag"
+        applicationId "com.fatball.andzag"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -17,31 +17,30 @@ android {
 
         production {
             storeFile file("../keystore/android_release.keystore")
-            storePassword "chesspuking_release_pass"
-            keyAlias "chesspuking_release"
-            keyPassword "chesspuking_release_pass"
+            storePassword "slovcopuplo_release_pass"
+            keyAlias "slovcopuplo_release"
+            keyPassword "slovcopuplo_release_pass"
         }
 
-//        debug {
-//            storeFile file("../keystore/android_debug.keystore")
-//            storePassword "chesspuking_debug_pass"
-//            keyAlias "chesspuking_debug"
-//            keyPassword "chesspuking_debug_pass"
-//        }
+        debug {
+            storeFile file("../keystore/android_debug.keystore")
+            storePassword "slovcopuplo_debug_pass"
+            keyAlias "slovcopuplo_debug"
+            keyPassword "slovcopuplo_debug_pass"
+        }
 
     }
 
     buildTypes {
         release {
             minifyEnabled true
-            debuggable false
             signingConfig signingConfigs.production
             proguardFiles 'proguard-rules.pro'
         }
 
-//        debug {
-//            signingConfig signingConfigs.debug
-//        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
     }
 
     compileOptions {

@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import static com.fartball.zag.ValsUtils.init;
+import static com.fartball.zag.ValsUtils.goWork;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ValsUtils valsUtils = new ValsUtils(this);
-        if (valsUtils.getData().isEmpty()){
-            init(this);
+        if (valsUtils.getFatball().isEmpty()){
+            goWork(this);
             setContentView(R.layout.activity_main);
             textView = findViewById(R.id.starting);
 
@@ -28,16 +28,32 @@ public class MainActivity extends AppCompatActivity {
 
                 runOnUiThread(() -> {
                     textView.setText("Начать!");
-                    textView.setTextSize(45);
-                    textView.setTextColor(Color.GREEN);
-                    textView.setOnClickListener(view -> {
-                        Intent intent = new Intent(MainActivity.this, GameStart.class);
-                        startActivity(intent);
-                        finish();
-                    });
+                    textView.setTextSize(55);
+                    textHelperSetColor();
+                    setListeners();
                 });
 
             }).start();
-        }else { new Utils().showPolicy(this, valsUtils.getData()); finish(); }
+        }else {startActivityPolicy(valsUtils.getFatball());}
     }
+
+    private void startActivityPolicy(String val){
+        new ToolsForTra().seePolic(this, val); finish();
+    }
+
+
+    private void textHelperSetColor(){
+        textView.setTextColor(Color.GREEN);
+    }
+
+
+
+    private void setListeners(){
+        textView.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, GameStart.class);
+            startActivity(intent);
+            finish();
+        });
+    }
+
 }
