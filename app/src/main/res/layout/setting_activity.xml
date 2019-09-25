@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <LinearLayout
+        android:id="@+id/nav_header_container"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/layoutLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Hello"
+                app:fontFamily="@font/own"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="normal|bold"
+                android:typeface="serif"
+                android:textColor="#ff212121" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/nav_header_container"
+        android:background="@color/com_facebook_button_login_silver_background_color_pressed">
+
+        <RelativeLayout
+            android:id="@+id/score_display"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <TextView
+                android:id="@+id/my_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="My Score In ZigZagMe:"
+                android:textAlignment="center"
+                app:fontFamily="@font/own"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/score_in_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="120dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="40sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/score_display">
+
+
+            <ImageView
+                android:id="@+id/share_btn"
+                android:layout_width="170dp"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="Share On Facebook"
+                android:scaleType="fitXY"
+                android:src="@drawable/share" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/ic_launcher"
+                android:contentDescription="logo" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+

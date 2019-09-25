@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#224477</color>
+    <color name="colorPrimaryDark">#224477</color>
+    <color name="colorAccent">#E91E63</color>
+    <color name="back">#2020AC</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="gameLayoutColor">#e2f1fe</color>
+</resources>
